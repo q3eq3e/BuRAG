@@ -1,6 +1,5 @@
 # ============================================================
 # RAG PROJECT
-# Single-cell implementation
 # ============================================================
 
 # ============================================================
@@ -91,7 +90,8 @@ CONFIG = {
     # -----------------------------------------
     "test_mode": True,
     "test_generator": "sshleifer/tiny-gpt2",
-    "production_generator": "meta-llama/Meta-Llama-3-8B-Instruct",
+    # "production_generator": "meta-llama/Meta-Llama-3-8B-Instruct",
+    "production_generator": "mistralai/Mistral-7B-Instruct-v0.2",
     # -----------------------------------------
     # RETRIEVAL
     # -----------------------------------------
@@ -395,7 +395,6 @@ def generate_answer(question, context):
     return output[0]["generated_text"]
 
 
-# raise ValueError("a")
 # ============================================================
 # VARIANT A
 # NO RAG
@@ -526,10 +525,14 @@ def ask(question, variant="D"):
 
 question = "What is the capital of France?"
 
-answer = ask(question, variant="D")
-
 # print("\nQUESTION:")
 # print(question)
 
-# print("\nANSWER:")
-print(answer)
+print("Wariant A")
+print(ask(question, variant="A"))
+print("Wariant B")
+print(ask(question, variant="B"))
+print("Wariant C")
+print(ask(question, variant="C"))
+print("Wariant D")
+print(ask(question, variant="D"))
